@@ -20,21 +20,28 @@ class Develop_Handler(BaseHandler):
 class View_Handler(BaseHandler):
     def get(self):
         self.render('view.html') 
+class All_Handler(BaseHandler):
+    def get(self):
+        self.render('index.html') 
 
 
 class Post_View_Handler(BaseHandler):
     def post(self):
-        print  self.get_argument("pro_name")
-        print  self.get_argument("git_addr")
-        print  self.get_argument("exec_shell_1")
-        print  self.get_argument("exec_shell_2")
-        print "ssh",self.get_argument("ssh_server")
-        print  self.get_argument("local_path")
-        print  self.get_argument("remove_path")
-        print  self.get_argument("remote_path")
-        print  self.get_argument("mail_name")
-        print  self.get_argument("mail_subject")
-        print  self.get_argument("mail_data")
-        print  self.get_argument("pro_name")
-        print  self.get_argument("pro_name")
-	self.write("提交成功")
+        pro_name 	= self.get_argument("pro_name")
+        pro_desc 	= self.get_argument("pro_desc")
+        git_addr 	= self.get_argument("git_addr")
+        exec_shell_1 	= self.get_argument("exec_shell_1")
+        exec_shell_2 	= self.get_argument("exec_shell_2")
+        ssh_server 	= self.get_argument("ssh_server")
+        local_path 	= self.get_argument("local_path")
+        remove_path 	= self.get_argument("remove_path")
+        remote_path 	= self.get_argument("remote_path")
+        mail_name 	= self.get_argument("mail_name")
+        mail_subject 	= self.get_argument("mail_subject")
+        mail_data 	= self.get_argument("mail_data")
+        remote_exec_shell = self.get_argument("remote_exec_shell")
+	if not self.db.exists(pro_name):
+	    self.db.rpush( pro_name, pro_desc, git_addr, exec_shell_1, exec_shell_2, ssh_server, local_path, remove_path, remote_path,mail_name, mail_subject, mail_data, remote_exec_shell)
+	    self.write("提交成功")
+	else:
+	    self.write("此工程项目已经存在")

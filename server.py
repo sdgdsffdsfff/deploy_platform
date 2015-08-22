@@ -1,19 +1,16 @@
 # -*- coding: utf-8 -*- 
 import tornado.httpserver, os
 import tornado.ioloop
-import tornado.web,torndb
+import tornado.web,torndb , redis
 from handlers.handlers import HANDLERS , STATIC_PATH , TEMPLATE_PATH
 
 from tornado.options import define, options, parse_command_line
 
 define("port", default=808, help="run on the given port", type=int)
-'''
-define("mysql_host", default="localhost:3306", help="log database host")
-define("mysql_database", default="log", help="log database name")
-define("mysql_user", default="root", help="log database user")
-define("mysql_password", default="bxjU68#Y6%Of&vs99", help="log database password")
-define("mysql_password", default="", help="log database password")
-'''
+define("redis_host", default="localhost", help="redis server host")
+define("redis_db", default="0", help="redis server db")
+define("redis_port", default="6379", help="redis server port")
+define("redis_password", default="", help="redis server password")
 
 class Application(tornado.web.Application):
     def __init__(self):
@@ -29,17 +26,17 @@ class Application(tornado.web.Application):
                                                                     
 
      	tornado.web.Application.__init__(self, handlers, **settings)
-	'''
 	try:
-             self.db = torndb.Connection(                                               
-       	     host=options.mysql_host, database=options.mysql_database,                             
-             user=options.mysql_user, password=options.mysql_password,charset='utf8')
-	     if not self.db:
-	         print "mysql database connect already ok,Please use !"
+	     pool = redis.ConnectionPool(
+	     		host =options.redis_host, port=options.redis_port,
+                 	db =options.redis_db,     password=options.redis_password )
+
+             self.db = redis.Redis(connection_pool=pool)                                               
+	     if  self.db:
+	         print "redis database has connect already ,Please use !"
 	except:
 	     print  "数据库连接不上"
 
-	'''
 
 
 
