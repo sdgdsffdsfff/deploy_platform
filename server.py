@@ -37,9 +37,6 @@ class Application(tornado.web.Application):
 	except:
 	     print  "数据库连接不上"
 
-
-
-
 def main():
     parse_command_line()
     http_server = tornado.httpserver.HTTPServer(Application())
