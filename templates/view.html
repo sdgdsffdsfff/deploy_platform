@@ -9,7 +9,7 @@
           <form class="form-horizontal">
             <div class="form-group">
               <div class="col-sm-10">
-                <input type="text" class="form-control input-sm" placeholder="请输入项目名称">
+                <input type="text" class="form-control input-sm" placeholder="请输入项目名称" id="pro_name">
              </div>
             </div>
           </form>
@@ -21,7 +21,7 @@
           <form class="form-horizontal">
             <div class="form-group">
               <div class="col-sm-10">
-                <input type="text" class="form-control input-sm">
+                <input type="text" class="form-control input-sm" id="pro_desc">
              </div>
             </div>
           </form>
@@ -31,13 +31,13 @@
           <form class="form-horizontal">
             <div class="form-group">
               <div class="col-sm-10">
-                <input type="text" class="form-control input-sm">
+                <input type="text" class="form-control input-sm" id="git_addr">
              </div>
             </div>
           </form>
       </div>
 
-        <div class="col-sm-5">构建</div>
+        <div class="col-sm-5">构建准备</div>
         <div class="col-sm-10">
 	<hr style="height:10px;border:none;border-top:10px groove skyblue;" />
         </div>
@@ -46,7 +46,7 @@
         <div class="col-sm-9">
 	  <form role="form">
   	    <div class="form-group">
-               <textarea class="form-control" rows="3"></textarea>
+               <textarea class="form-control" rows="3" id="exec_shell_1"></textarea>
             </div>
           </form>
       </div>
@@ -58,7 +58,7 @@
 	 <div class="col-sm-2"><span class="label label-danger">SSH服务器</span></div>
           <form class="form-horizontal">
             <div class="form-group">
-              <div class="col-sm-8">
+              <div class="col-sm-8" id="ssh_server">
 		<select class="form-control">
          	<option>1</option>
      	 	<option>2</option>
@@ -73,38 +73,37 @@
         <div class="row">
 	   <div class="col-sm-2"><span class="label label-danger">源文件路劲</span></div>
             <div class="col-md-8">
-		<input type="text" class="form-control input-sm col-sm-8" placeholder="/data/">
+		<input type="text" class="form-control input-sm col-sm-8" placeholder="/data/" id="local_path">
             </div>
         </div>
 	<p></p>
         <div class="row">
            <div class="col-sm-2"><span class="label label-danger">移除路劲</span></div>
             <div class="col-md-8">
-                <input type="text" class="form-control input-sm col-sm-8" placeholder="/data/">
+                <input type="text" class="form-control input-sm col-sm-8" placeholder="/data/" id="remove_path">
             </div>
         </div>
 	<p></p>
         <div class="row">
            <div class="col-sm-2"><span class="label label-danger">远端路劲</span></div>
             <div class="col-md-8">
-                <input type="text" class="form-control input-sm col-sm-8" placeholder="/data/">
+                <input type="text" class="form-control input-sm col-sm-8" placeholder="/data/" id="remote_path">
             </div>
         </div>
 	<p></p>
         <div class="row">
            <div class="col-sm-2"><span class="label label-danger">执行命令</span></div>
             <div class="col-md-8">
-		<textarea class="form-control" rows="3"></textarea>
+		<textarea class="form-control" rows="3" id="remote_exec_shell"></textarea>
             </div>
         </div>
+	<p></p>
       </div>
-
-
       <div class="col-sm-1">执行shell</div>
         <div class="col-sm-9">
           <form role="form">
             <div class="form-group">
-               <textarea class="form-control" rows="3"></textarea>
+               <textarea class="form-control" rows="3" id="exec_shell_2"></textarea>
             </div>
           </form>
       </div>
@@ -122,27 +121,27 @@
         <div class="row">
            <div class="col-sm-1"><span class="label label-info">邮箱名称</span></div>
             <div class="col-md-6">
-                <input type="text" class="form-control input-sm" placeholder="test@163.com">
+                <input type="text" class="form-control input-sm" placeholder="test@163.com" id="mail_name">
             </div>
         </div>
         <p></p>
         <div class="row">
            <div class="col-sm-1"><span class="label label-info">发送主题</span></div>
             <div class="col-md-6">
-                <input type="text" class="form-control input-sm" placeholder="test@163.com">
+                <input type="text" class="form-control input-sm" placeholder="test@163.com" id="mail_subject">
             </div>
         </div>
         <p></p>
         <div class="row">
            <div class="col-sm-1"><span class="label label-info">发送内容</span></div>
             <div class="col-md-9">
-                <textarea class="form-control" rows="3"></textarea>
+                <textarea class="form-control" rows="3" id="mail_data"></textarea>
             </div>
         </div>
         <p></p>
 	<div class="row">
 		<div class="col-lg-4 text-right">
-   			<button type="button" class="btn btn-success btn-lg">
+   			<button type="button" class="btn btn-success btn-lg" id="view_save">
       				保存
    			</button>
 		</div>
