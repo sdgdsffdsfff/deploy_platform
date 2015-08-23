@@ -24,7 +24,10 @@ class View_Handler(BaseHandler):
 class All_Handler(BaseHandler):
     def get(self):
 	data = self.db.lrange("PROJECT_NAME",0,-1)
-        self.render('index.html', data = data) 
+	group_hash_key = ''.join((eval(data[0])).keys())
+	group_table = self.db.hgetall(group_hash_key)
+	print  group_table
+        self.render('index.html', data = data, group_table = group_table ) 
 
 class Post_View_Handler(BaseHandler):
     def post(self):
