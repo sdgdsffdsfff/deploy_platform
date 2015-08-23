@@ -22,10 +22,28 @@ $(document).ready(function(){
                         function(data){
                                 	alert(data);
                 });
-                                location.href='/log_display/';
+                                location.href='/';
         };
   });
 
 ///////////////////////////////////////////////////////////////
+
+
+  $("#Group_btn").click(function(){
+        if($("#Group_Name").val()==""){
+                alert("组名字不能为空");
+            }else{
+                $.post("/add_group/",
+                {
+                        Group_Name:       $("#Group_Name").val(),
+                        Group_Desc:       $("#Group_Desc").val(),
+                },
+                        function(data){
+                                        alert(data);
+                });
+                                location.href='/';
+        };
+  });
+
 
 });

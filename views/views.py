@@ -20,10 +20,15 @@ class Develop_Handler(BaseHandler):
 class View_Handler(BaseHandler):
     def get(self):
         self.render('view.html') 
+
 class All_Handler(BaseHandler):
     def get(self):
-        self.render('index.html') 
-
+	data = self.db.lrange("PROJECT_NAME",0,-1)
+	if data:
+	    print data 
+            self.render('index.html', data = data) 
+	else:
+            self.render('index.html') 
 
 class Post_View_Handler(BaseHandler):
     def post(self):
@@ -45,3 +50,13 @@ class Post_View_Handler(BaseHandler):
 	    self.write("提交成功")
 	else:
 	    self.write("此工程项目已经存在")
+
+class Add_Group_Handler(BaseHandler):
+    def post(self):
+        Group_Name = self.get_argument("Group_Name")
+        Group_Desc = self.get_argument("Group_Desc")
+	gro_dict={}
+	gro_dict[Group_Name] = Group_Desc
+	G_redis_name="PROJECT_NAME"
+	if self.db.rpush(G_redis_name,gro_dict):
+	    self.write("提交成功")

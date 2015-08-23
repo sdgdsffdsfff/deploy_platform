@@ -3,13 +3,14 @@
 
 
 <ul id="myTab" class="nav nav-tabs">
-   <li class="active"><a href="#home" data-toggle="tab">
-      W3Cschool Home</a>
-   </li>
-   <li><a href="#ios" data-toggle="tab">iOS</a></li>
-   <li><a href="#andior" data-toggle="tab">andior</a></li>
-   
+{% for i in data %}
+   {% for x,y in (eval(i)).items() %}
+   <li><a href="#home" data-toggle="tab">{{x}}</a></li>
+   {% end %}
+{% end %}
+   <li><a data-toggle="modal" data-target="#myModal" class="glyphicon glyphicon-plus"></span>增加</a></li>
 </ul>
+
 <div id="myTabContent" class="tab-content">
    <div class="tab-pane fade in active" id="home">
       <div class="table-responsive">
@@ -27,7 +28,7 @@
    <tbody>
       <tr>
          <td>Tanmay</td>
-         <td>Bangalore</td>
+         <td><a href="#">Bangalore</a></td>
          <td>Bangalore</td>
          <td>Bangalore</td>
          <td>Bangalore</td>
@@ -37,18 +38,66 @@
 </table>
 </div>
    </div>
-   <div class="tab-pane fade" id="ios">
-      <p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
-   </div>
-   <div class="tab-pane fade" id="andior">
-      <p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
-   </div>
-   
 </div>
 <script>
    $(function () {
       $('#myTab li:eq(0) a').tab('show');
    });
 </script>
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div   class="modal-dialog" style="width:700px">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" 
+               data-dismiss="modal" aria-hidden="true">
+                  &times;
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+               增加分组 
+            </h4>
+         </div>
+         <div class="modal-body">
+<form class="form-inline">
+ <table class="table table-bordered">
+   <tbody>
+    <tr>
+      <td>
+         <div class="form-group has-success has-feedback">
+            <label class="control-label">分组名称</label>
+         </div>
+      </td>
+      <td>  
+         <input type="text" class="form-control" id="Group_Name"> 
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+         <div class="form-group has-success has-feedback">
+            <label class="control-label">分组描述</label>
+         </div>
+      </td>
+      <td>
+         <input type="text" class="form-control" id="Group_Desc" >
+      </td>
+    </tr>
+
+
+  </tbody>
+ </table>
+</form>
+
+         </div>
+         <div class="modal-footer">
+            <input id="Group_btn" type="button" class="btn btn-success" value="提交">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+         </div>
+      </div><!-- /.modal-content -->
+</div><!-- /.modal -->
+</div>
 
 {% end %}
