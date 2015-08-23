@@ -22,11 +22,15 @@ class View_Handler(BaseHandler):
         self.render('view.html') 
 
 class All_Handler(BaseHandler):
-    def get(self):
+    '''
+    在首页展示分组的汇总信息
+    '''
+    def get(self,group_name):
+        self.group_name = group_name 
 	data = self.db.lrange("PROJECT_NAME",0,-1)
 	group_hash_key = ''.join((eval(data[0])).keys())
 	group_table = self.db.hgetall(group_hash_key)
-	print  group_table
+	print self.group_name
         self.render('index.html', data = data, group_table = group_table ) 
 
 class Post_View_Handler(BaseHandler):

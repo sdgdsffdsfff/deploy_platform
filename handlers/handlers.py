@@ -7,6 +7,6 @@ HANDLERS =[(r"/develop/" ,Develop_Handler),
 	   (r"/view/",View_Handler),
 	   (r"/post_view/",Post_View_Handler),
 	   (r"/add_group/",Add_Group_Handler),
-	   (r"/",All_Handler),
+	   (r"/index/(.*)/",All_Handler),
 	]
 HANDLERS +=[(r"/chart/", ChartHandler)]
