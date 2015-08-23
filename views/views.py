@@ -24,11 +24,7 @@ class View_Handler(BaseHandler):
 class All_Handler(BaseHandler):
     def get(self):
 	data = self.db.lrange("PROJECT_NAME",0,-1)
-	if data:
-	    print data 
-            self.render('index.html', data = data) 
-	else:
-            self.render('index.html') 
+        self.render('index.html', data = data) 
 
 class Post_View_Handler(BaseHandler):
     def post(self):

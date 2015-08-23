@@ -3,11 +3,14 @@
 
 
 <ul id="myTab" class="nav nav-tabs">
+{% if len(data) > 0 %}
 {% for i in data %}
-   {% for x,y in (eval(i)).items() %}
-   <li><a href="#home" data-toggle="tab">{{x}}</a></li>
-   {% end %}
+    {% for x,y in (eval(i)).items() %}
+    <li><a href="#home" data-toggle="tab">{{x}}</a></li>
+    {% end %}
 {% end %}
+{% end %}
+
    <li><a data-toggle="modal" data-target="#myModal" class="glyphicon glyphicon-plus"></span>增加</a></li>
 </ul>
 
