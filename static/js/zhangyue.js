@@ -45,5 +45,9 @@ $(document).ready(function(){
         };
   });
 
+////////////////////////////////////////////////////////////
+  $("#myTab li :not(li:last)").click(function(){
+	alert("wqdqdqwd");
+  });
 
 });
