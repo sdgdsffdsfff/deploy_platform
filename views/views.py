@@ -64,6 +64,9 @@ class Post_View_Handler(BaseHandler):
 	    self.write("此工程项目已经存在")
 
 class Add_Group_Handler(BaseHandler):
+    '''
+    增加分组到REDIS的hash
+    '''
     def post(self):
         Group_Name = self.get_argument("Group_Name")
         Group_Desc = self.get_argument("Group_Desc")
