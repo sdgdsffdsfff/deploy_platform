@@ -28,8 +28,7 @@ class All_Handler(BaseHandler):
     def get(self,group_name):
         self.group_name = group_name 
 	data = self.db.lrange("PROJECT_NAME",0,-1)
-	group_hash_key = ''.join((eval(data[0])).keys())
-	group_table = self.db.hgetall(group_hash_key)
+	group_table = self.db.hgetall(self.group_name)
         self.render('index.html', data = data, group_table = group_table ) 
 class Index_Handler(BaseHandler):
     '''
@@ -41,6 +40,9 @@ class Index_Handler(BaseHandler):
 	self.redirect('/all/%s/'%(group_hash_key) , permanent=True)
 
 class Post_View_Handler(BaseHandler):
+    '''
+    项目构建提交的资料
+    '''
     def post(self):
         pro_name 	= self.get_argument("pro_name")
         pro_desc 	= self.get_argument("pro_desc")

@@ -48,10 +48,12 @@ $(document).ready(function(){
 ////////////////////////////////////////////////////////////
   $("#myTab li :not(li:last)").click(function(){
 	var  $group_name = $(this).text();
-	alert($group_name);
 	if($group_name != ""){
-		location.href='/all/'+$group_name;
+		location.href='/all/'+ $group_name +'/';
 	}
+
+
+
   });
 
 });
