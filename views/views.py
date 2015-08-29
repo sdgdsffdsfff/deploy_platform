@@ -18,8 +18,13 @@ class Develop_Handler(BaseHandler):
         self.render('develop.html') 
 
 class View_Handler(BaseHandler):
+    ''' 
+    设置具体job的信息
+    ''' 
     def get(self):
-        self.render('view.html') 
+	#data = self.db.lrange("PROJECT_NAME",0,-1)
+	data=[]
+        self.render('view.html', data = data) 
 
 class All_Handler(BaseHandler):
     '''
