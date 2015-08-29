@@ -51,9 +51,19 @@ $(document).ready(function(){
 	if($group_name != ""){
 		location.href='/all/'+ $group_name +'/';
 	}
-
-
-
   });
+
+   $(function () {
+      $('#myTab li:eq(0) a').tab('show');
+   });
+////////////////////////////////////////////////////////////
+
+  $("#table  td span").click(function(){
+	var $G_Name =$(this).parent().parent().children("td").eq(0).text() ;
+        alert($G_Name);
+ 
+  });
+
+
 
 });
