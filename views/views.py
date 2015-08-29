@@ -2,6 +2,7 @@
 
 import tornado.web
 import time
+from ssh import get_host_list
 class BaseHandler(tornado.web.RequestHandler):
     @property
     def db(self):
@@ -23,7 +24,8 @@ class View_Handler(BaseHandler):
     ''' 
     def get(self):
 	data = self.db.lrange("PROJECT_NAME",0,-1)
-        self.render('view.html', data = data) 
+	host_list = get_host_list.get_list(pattern="all")
+        self.render('view.html', data = data, host_list = host_list) 
 
 class All_Handler(BaseHandler):
     '''
@@ -45,13 +47,14 @@ class Index_Handler(BaseHandler):
 
 class Post_View_Handler(BaseHandler):
     '''
-    项目构建提交的资料
+    提交新项目或者修改项目
     '''
     def post(self):
         pro_name 	= self.get_argument("pro_name")
         pro_desc 	= self.get_argument("pro_desc")
         git_addr 	= self.get_argument("git_addr")
         exec_shell_1 	= self.get_argument("exec_shell_1")
+	print exec_shell_1
         exec_shell_2 	= self.get_argument("exec_shell_2")
         ssh_server 	= self.get_argument("ssh_server")
         local_path 	= self.get_argument("local_path")
@@ -60,8 +63,10 @@ class Post_View_Handler(BaseHandler):
         mail_name 	= self.get_argument("mail_name")
         mail_subject 	= self.get_argument("mail_subject")
         mail_data 	= self.get_argument("mail_data")
+        select_group	=self.get_argument("select_group")
         remote_exec_shell = self.get_argument("remote_exec_shell")
-        print  self.get_argument("select_group")
+	default_status='<a class="text-danger">新加</a>'
+	self.db.hset(select_group, pro_name, (default_status,default_status,default_status,default_status))
 	if not self.db.exists(pro_name):
 	    self.db.rpush( pro_name, pro_desc, git_addr, exec_shell_1, exec_shell_2, ssh_server, local_path, remove_path, remote_path,mail_name, mail_subject, mail_data, remote_exec_shell)
 	    self.write("提交成功")

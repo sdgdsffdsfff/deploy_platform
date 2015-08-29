@@ -75,11 +75,11 @@
             <div class="form-group">
               <div class="col-sm-8" id="ssh_server">
 		<select class="form-control">
-         	<option>1</option>
-     	 	<option>2</option>
-         	<option>3</option>
-         	<option>4</option>
-         	<option>5</option>
+		{% if len(host_list) > 0 %}
+		{% for host in host_list%}
+         		<option>{{host}}</option>
+		{% end %}
+		{% end %}
       		</select>
               </div>
              </div>

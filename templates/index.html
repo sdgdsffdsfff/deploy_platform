@@ -33,7 +33,7 @@
             <td><a href="#">{{x}}</a></td>
 		{% set value = group_table[x] %}
 	        {% for i in  tuple(eval(value)) %}
-         	   <td>{{i}}</td>
+         	   <td>{% raw i%}</td>
 	        {% end %}
             <td><span class="glyphicon glyphicon-circle-arrow-right" style="color: rgb(255, 140, 60); font-size: 27px;"></span></td>
           </tr>

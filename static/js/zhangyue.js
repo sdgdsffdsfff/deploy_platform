@@ -65,6 +65,11 @@ $(document).ready(function(){
  
   });
 
+//////////////////////////////////////////////////////////////
+/*view页面span图标点击事件*/
+  $("#retu_home").click(function(){
+	location.href='/';
+  });
 
 
 });
