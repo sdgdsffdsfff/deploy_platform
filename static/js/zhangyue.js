@@ -61,9 +61,36 @@ $(document).ready(function(){
 
   $("#table  td span").click(function(){
 	var $G_Name =$(this).parent().parent().children("td").eq(0).text() ;
-        alert($G_Name);
- 
+                post($G_Name);
   });
+
+
+
+
+function post($G_Name){
+  		var msg = "确定要立刻构建吗?"; 
+  		if (confirm(msg)==true){ 
+		     $.post("/exec_build/",
+                     {
+			G_Name:       $G_Name,
+                     },
+                        function(data){
+                                alert(data);
+                     });
+                        location.href='/';
+  		}else{ 
+			return false;
+  	             }		 
+
+   	}
+
+
+
+
+
+
+
+
 
 //////////////////////////////////////////////////////////////
 /*view页面span图标点击事件*/

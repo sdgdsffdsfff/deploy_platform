@@ -54,7 +54,6 @@ class Post_View_Handler(BaseHandler):
         pro_desc 	= self.get_argument("pro_desc")
         git_addr 	= self.get_argument("git_addr")
         exec_shell_1 	= self.get_argument("exec_shell_1")
-	print exec_shell_1
         exec_shell_2 	= self.get_argument("exec_shell_2")
         ssh_server 	= self.get_argument("ssh_server")
         local_path 	= self.get_argument("local_path")
@@ -65,7 +64,7 @@ class Post_View_Handler(BaseHandler):
         mail_data 	= self.get_argument("mail_data")
         select_group	=self.get_argument("select_group")
         remote_exec_shell = self.get_argument("remote_exec_shell")
-	default_status='<a class="text-danger">新加</a>'
+	default_status='<a class="text-danger">暂无</a>'
 	self.db.hset(select_group, pro_name, (default_status,default_status,default_status,default_status))
 	if not self.db.exists(pro_name):
 	    self.db.rpush( pro_name, pro_desc, git_addr, exec_shell_1, exec_shell_2, ssh_server, local_path, remove_path, remote_path,mail_name, mail_subject, mail_data, remote_exec_shell)
@@ -85,3 +84,13 @@ class Add_Group_Handler(BaseHandler):
 	G_redis_name="PROJECT_NAME"
 	if self.db.rpush(G_redis_name,gro_dict):
 	    self.write("提交成功")
+class Exec_Build_Handler(BaseHandler):
+    '''
+	任务构建执行主函数
+    '''
+    def post(self):
+        G_Name = self.get_argument("G_Name")
+	get_config = self.db.lrange(G_Name,0,-1)
+	for i in get_config:
+	    print i 
+	self.write(G_Name)
