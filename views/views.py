@@ -94,3 +94,6 @@ class Exec_Build_Handler(BaseHandler):
 	for i in get_config:
 	    print i 
 	self.write(G_Name)
+class Schedule_Handler(BaseHandler):
+    def get(self):
+        self.render('schedule.html') 
