@@ -12,7 +12,7 @@
                 <input type="text" class="form-control input-sm" placeholder="请输入项目名称" id="pro_name">
               </div>
               <div class="col-sm-5">
-                <select class="form-control">
+                <select class="form-control" id="select_group">
 			{% if len(data) > 0 %}
 			{% for i in data %}
 			    {% for x,y in (eval(i)).items() %}

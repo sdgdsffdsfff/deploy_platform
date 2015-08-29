@@ -61,6 +61,7 @@ class Post_View_Handler(BaseHandler):
         mail_subject 	= self.get_argument("mail_subject")
         mail_data 	= self.get_argument("mail_data")
         remote_exec_shell = self.get_argument("remote_exec_shell")
+        print  self.get_argument("select_group")
 	if not self.db.exists(pro_name):
 	    self.db.rpush( pro_name, pro_desc, git_addr, exec_shell_1, exec_shell_2, ssh_server, local_path, remove_path, remote_path,mail_name, mail_subject, mail_data, remote_exec_shell)
 	    self.write("提交成功")

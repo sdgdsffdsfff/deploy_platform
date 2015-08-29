@@ -17,6 +17,7 @@ $(document).ready(function(){
                         mail_name:   	$("#mail_name").val(),
                         mail_subject:  	$("#mail_subject").val(),
                         mail_data:   	$("#mail_data").val(),
+			select_group:	$('#select_group option:selected').text(),
                     remote_exec_shell: 	$("#remote_exec_shell").val(),
                 },
                         function(data){
