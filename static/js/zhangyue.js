@@ -98,5 +98,9 @@ function post($G_Name){
 	location.href='/';
   });
 
+///////////////////////////////////////////////////////////////
+  $(function(){
+    $("#form1").validation({icon:true});
+  })
 
 });
