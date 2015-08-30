@@ -77,7 +77,7 @@ function post($G_Name){
                         function(data){
                                 alert(data);
                      });
-                        location.href='/';
+                        location.href='/schedule/';
   		}else{ 
 			return false;
   	             }		 
