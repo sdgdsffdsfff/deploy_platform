@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block body %}
+
+
+
+<div class="container-fluid">
+   <div class="row-fluid">
+     <div class="col-md-12">
+        <div class="panel panel-success">
+         <div class="panel-heading">
+	    <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> 批量删除</button>
+            <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> 添加管理员</button>
+            <blockquote class="pull-right">共有数据：54 条</blockquote>
+         </div>
+
+
+<div class="table-responsive">
+   <table class="table table-condensed">
+      <thead>
+         <tr>
+            <th>用户列表</th>
+         </tr>
+      </thead>
+   </table>
+</div>  
+
+
+<table class="table table-bordered table-hover table-condensed">
+   <thead>
+      <tr class="success">
+            <th></th>
+            <th>登录名</th>
+            <th>手机</th>
+            <th>邮箱</th>
+            <th>角色</th>
+            <th>加入时间</th>
+            <th>是否启用</th>
+            <th>操作</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td><div class="checkbox"><label><input type="checkbox"></label></div></td>
+         <td>Tanmay</td>
+         <td>Tanmay</td>
+         <td>Tanmay</td>
+         <td>Tanmay</td>
+         <td>Tanmay</td>
+         <td><span class="label label-success">已启用</span></td>
+         <td>
+<a href="#" class="tooltip-show" data-toggle="tooltip" data-placement="left"  title="停用"><span class="glyphicon glyphicon-minus" ></
+span></a>
+<a href="#" class="tooltip-show" data-toggle="tooltip" data-placement="top"  title="编辑"><span class="glyphicon glyphicon-pencil" ></
+span></a>
+<a href="#" class="tooltip-show" data-toggle="tooltip" data-placement="bottom" title="修改密码"><span class="glyphicon glyphicon-th-list" ></span></a>
+<a href="#" class="tooltip-show" data-toggle="tooltip" data-placement="right"  title="删除"><span class="glyphicon glyphicon-trash" ></span></a>
+         </td>
+      </tr>
+      <tr>
+         <td><div class="checkbox"><label><input type="checkbox"></label></div></td>
+         <td>Sachin</td>
+         <td>Sachin</td>
+         <td>Sachin</td>
+         <td>Sachin</td>
+         <td>Sachin</td>
+         <td><span class="label label-success">已启用</span></td>
+         <td>
+<a href="#" class="tooltip-show" data-toggle="tooltip" data-placement="left"  title="停用"><span class="glyphicon glyphicon-minus" ></
+span></a>
+<a href="#" class="tooltip-show" data-toggle="tooltip" data-placement="top"  title="编辑"><span class="glyphicon glyphicon-pencil" ></
+span></a>
+<a href="#" class="tooltip-show" data-toggle="tooltip" data-placement="bottom" title="修改密码"><span class="glyphicon glyphicon-th-list" ></span></a>
+<a href="#" class="tooltip-show" data-toggle="tooltip" data-placement="right"  title="删除"><span class="glyphicon glyphicon-trash" ></span></a>
+         </td>
+      </tr>
+      <tr>
+         <td><div class="checkbox"><label><input type="checkbox"></label></div></td>
+         <td>Pune</td>
+         <td>Sachin</td>
+         <td>Sachin</td>
+         <td>Sachin</td>
+         <td>Sachin</td>
+         <td><span class="label label-success">已启用</span></td>
+         <td>
+<a href="#" class="tooltip-show" data-toggle="tooltip" data-placement="left"  title="停用"><span class="glyphicon glyphicon-minus" ></span></a>
+<a href="#" class="tooltip-show" data-toggle="tooltip" data-placement="top"  title="编辑"><span class="glyphicon glyphicon-pencil" ></span></a>
+<a href="#" class="tooltip-show" data-toggle="tooltip" data-placement="bottom" title="修改密码"><span class="glyphicon glyphicon-th-list" ></span></a>
+<a href="#" class="tooltip-show" data-toggle="tooltip" data-placement="right"  title="删除"><span class="glyphicon glyphicon-trash" ></span></a>
+         </td>
+      </tr>
+   </tbody>
+</table>
+
+
+<script>
+   $(function () { $("[data-toggle='tooltip']").tooltip(); });
+</script>
+
+
+
+
+        </div>
+     </div>
+   </div>
+</div>
+
+{% end %}
